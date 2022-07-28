@@ -1,0 +1,84 @@
+/* BASIC FORMATTING */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  display: grid;
+  padding: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* HEADER  */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3.5rem;
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.new-book-btn,
+.submit-btn {
+  width: 20rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.new-book-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* TABLE */
+th {
+  font-size: 2rem;
+  padding: 2rem;
+  color: white;
+  background-color: black;
+  border-radius: 0.5rem;
+}
+
+td {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* FORM */
+.form-container {
+  display: flex;
+  gap: 3rem;
+}
+
+.form-field {
+  display: grid;
+}

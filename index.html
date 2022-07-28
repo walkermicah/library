@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <title>Library</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>
+          <img src="img/books.png" alt="books icon" />
+          libraryApp
+        </h1>
+
+        <form action="#" method="get" class="hidden">
+          <div class="form-container">
+            <div class="form-field">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" id="title" class="form-input-1" required />
+            </div>
+
+            <div class="form-field">
+              <label for="author" class="form-label">Author</label>
+              <input type="text" id="author" class="form-input" required />
+            </div>
+
+            <div class="form-field">
+              <label for="pages" class="form-label"># Pages</label>
+              <input type="text" id="pages" class="form-input" required />
+            </div>
+
+            <div class="form-field">
+              <label for="read" class="form-label">Read</label>
+              <input type="text" id="read" class="form-input" required />
+            </div>
+          </div>
+        </form>
+
+        <button class="new-book-btn">+ NEW BOOK</button>
+        <button class="submit-btn hidden">SUBMIT</button>
+      </header>
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th># Pages</th>
+          <th>Read</th>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
