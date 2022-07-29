@@ -75,6 +75,7 @@ newBookBtn.addEventListener("click", function () {
   form.classList.remove("hidden");
   newBookBtn.classList.add("hidden");
   submitBtn.classList.remove("hidden");
+  document.getElementById("title").focus();
 });
 
 submitBtn.addEventListener("click", function () {
@@ -93,17 +94,24 @@ submitBtn.addEventListener("click", function () {
   submitBtn.classList.add("hidden");
 });
 
+form.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    submitBtn.click();
+  }
+});
+
 //TO DO
 //6) //add drop down for read/unread.
 //save answer in mylibrary in submitBtn function
 //display answer as text in table
+//commit
 //add toggle switch to cell
 //connect switch to form input (separate funciton called from submit btn?)
 //when switch is clicked, edit book info in mylibrary
-
-//add keyboard listener to submit button
+//commit
 
 //fix table width (https://stackoverflow.com/questions/4457506/set-the-table-column-width-constant-regardless-of-the-amount-of-text-in-its-cell)
+//commit
 
 addBookToLibrary("Book 1", "Author Name", 100, "Read");
 addBookToLibrary("Book 2", "Author Name", 100, "Read");

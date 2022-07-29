@@ -115,3 +115,8 @@ td {
 label {
   font-size: 1rem;
 }
+
+input:focus {
+  outline: none;
+  border-color: black;
+}
