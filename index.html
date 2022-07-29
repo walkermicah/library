@@ -24,32 +24,57 @@
           libraryApp
         </h1>
 
-        <form action="#" method="get" class="hidden">
+        <form action="#" class="hidden">
           <div class="form-container">
             <div class="form-field">
-              <label for="title" class="form-label">Title</label>
-              <input type="text" id="title" class="form-input-1" required />
+              <label for="title" class="form-label">TITLE</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="form-input-1"
+                required
+              />
             </div>
 
             <div class="form-field">
-              <label for="author" class="form-label">Author</label>
-              <input type="text" id="author" class="form-input" required />
+              <label for="author" class="form-label">AUTHOR</label>
+              <input
+                type="text"
+                id="author"
+                name="author"
+                class="form-input"
+                required
+              />
             </div>
 
             <div class="form-field">
-              <label for="pages" class="form-label"># Pages</label>
-              <input type="text" id="pages" class="form-input" required />
+              <label for="pages" class="form-label"># PAGES</label>
+              <input
+                type="text"
+                id="pages"
+                name="pages"
+                class="form-input"
+                required
+              />
             </div>
 
             <div class="form-field">
-              <label for="status" class="form-label">Status</label>
-              <input type="text" id="status" class="form-input" required />
+              <label for="status" class="form-label">STATUS</label>
+              <input
+                type="text"
+                id="status"
+                name="status"
+                class="form-input"
+                required
+              />
             </div>
+
+            <input type="submit" value="SUBMIT" class="submit-btn" />
           </div>
         </form>
 
-        <button class="new-book-btn">+ NEW BOOK</button>
-        <button class="submit-btn hidden">SUBMIT</button>
+        <button type="button" class="new-book-btn">+ NEW BOOK</button>
       </header>
       <table>
         <tr>

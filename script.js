@@ -83,6 +83,8 @@ submitBtn.addEventListener("click", function () {
   const pages = document.getElementById("pages").value;
   const status = document.getElementById("status").value;
 
+  if (!title || !author || !pages || !status) return;
+
   addBookToLibrary(title, author, pages, status);
 
   form.reset();
@@ -100,8 +102,7 @@ submitBtn.addEventListener("click", function () {
 //when switch is clicked, edit book info in mylibrary
 
 //add keyboard listener to submit button
-//style form
-//make all form inputs required to submit
+
 //fix table width (https://stackoverflow.com/questions/4457506/set-the-table-column-width-constant-regardless-of-the-amount-of-text-in-its-cell)
 
 addBookToLibrary("Book 1", "Author Name", 100, "Read");
