@@ -193,3 +193,14 @@ input:focus {
 .form-radio-input:checked + .form-radio-label .form-radio-btn::after {
   opacity: 1;
 }
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 28.125em) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .container {
+    padding: 0;
+  }
+}
