@@ -62,12 +62,17 @@ h1 {
 }
 
 /* TABLE */
+table {
+  table-layout: fixed;
+}
+
 th {
   font-size: 2rem;
   padding: 2rem;
   color: white;
   background-color: black;
   border-radius: 0.5rem;
+  width: 25%;
 }
 
 tr:nth-child(even) {
@@ -82,12 +87,39 @@ td {
   font-size: 1.5rem;
   text-align: center;
   padding: 1rem;
-  width: 25%;
+}
+
+/* TABLE BUTTONS */
+
+.read-btn {
+  width: 6rem;
+  font: inherit;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  transition: all 0.2s;
+  transform: translateY(-1rem);
+  margin-right: 2rem;
+}
+
+.read-btn:hover {
+  opacity: 0.8;
+}
+
+.read {
+  background-color: rgb(168, 222, 168);
+}
+
+.unread {
+  background-color: rgb(245, 162, 162);
 }
 
 .delete-btn {
-  border: none;
   background-color: transparent;
+}
+
+.read-btn,
+.delete-btn {
+  border: none;
   cursor: pointer;
 }
 

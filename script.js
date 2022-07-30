@@ -22,15 +22,36 @@ function clearTable() {
   }
 }
 
+//adds a read/unread toggle button to each row
+function insertReadButton(el, index) {
+  //insert button
+  const readBtn = el.appendChild(document.createElement("button"));
+  const status = myLibrary[index].status;
+  readBtn.classList.add("read-btn");
+  readBtn.textContent = status;
+  status === "Read"
+    ? readBtn.classList.add("read")
+    : readBtn.classList.add("unread");
+
+  //change read status
+  readBtn.addEventListener("click", function () {
+    const book = myLibrary[index];
+    book.status === "Read" ? (book.status = "Unread") : (book.status = "Read");
+    displayBooks(myLibrary);
+  });
+}
+
 //adds a delete button to each table row
-function addDeleteButton(el, index) {
+function insertDeleteButton(el, index) {
+  //insert button
   const deleteBtn = el.appendChild(document.createElement("button"));
   deleteBtn.classList.add("delete-btn");
   deleteBtn.innerHTML = `<img class="delete-icon" src="img/trash.png">`;
 
+  //delete corresponding row
   deleteBtn.addEventListener("click", function () {
-    const row = document.querySelector(`[data-index="${index}"]`);
-    row.remove();
+    const book = document.querySelector(`[data-index="${index}"]`);
+    book.remove();
     myLibrary.splice(index, 1);
     displayBooks(myLibrary);
   });
@@ -56,10 +77,12 @@ function displayBooks(library) {
     cell1.textContent = book.title;
     cell2.textContent = book.author;
     cell3.textContent = book.pages;
-    cell4.textContent = book.status;
+
+    //add "read/unread" toggle button to each row
+    insertReadButton(cell4, index);
 
     //add delete button to each row
-    addDeleteButton(cell4, index);
+    insertDeleteButton(cell4, index);
   });
 }
 
@@ -87,8 +110,6 @@ function submitForm() {
 
   if (!title || !author || !pages) return;
 
-  console.log(status);
-
   addBookToLibrary(title, author, pages, status);
 
   form.reset();
@@ -106,14 +127,3 @@ form.addEventListener("keypress", function (e) {
     submitBtn.click();
   }
 });
-
-//TO DO
-//add toggle switch to cell
-//connect switch to form input (separate funciton called from submit btn?)
-//when switch is clicked, edit book info in mylibrary
-//commit
-
-addBookToLibrary("Book 1", "Author Name", 100, "Read");
-addBookToLibrary("Book 2", "Author Name", 100, "Read");
-addBookToLibrary("Book 3", "Author Name", 100, "Read");
-addBookToLibrary("Book 4", "Author Name", 100, "Read");
