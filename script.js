@@ -70,21 +70,24 @@ function addBookToLibrary(title, author, pages, status) {
   displayBooks(myLibrary);
 }
 
-//Event listeners
-newBookBtn.addEventListener("click", function () {
+//Event listeners & functions
+function displayForm() {
   form.classList.remove("hidden");
   newBookBtn.classList.add("hidden");
   submitBtn.classList.remove("hidden");
   document.getElementById("title").focus();
-});
+  document.getElementById("read").click();
+}
 
-submitBtn.addEventListener("click", function () {
+function submitForm() {
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
   const pages = document.getElementById("pages").value;
-  const status = document.getElementById("status").value;
+  const status = document.querySelector('input[name="status"]:checked').value;
 
-  if (!title || !author || !pages || !status) return;
+  if (!title || !author || !pages) return;
+
+  console.log(status);
 
   addBookToLibrary(title, author, pages, status);
 
@@ -92,7 +95,11 @@ submitBtn.addEventListener("click", function () {
   form.classList.add("hidden");
   newBookBtn.classList.remove("hidden");
   submitBtn.classList.add("hidden");
-});
+}
+
+newBookBtn.addEventListener("click", displayForm);
+
+submitBtn.addEventListener("click", submitForm);
 
 form.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
@@ -101,16 +108,9 @@ form.addEventListener("keypress", function (e) {
 });
 
 //TO DO
-//6) //add drop down for read/unread.
-//save answer in mylibrary in submitBtn function
-//display answer as text in table
-//commit
 //add toggle switch to cell
 //connect switch to form input (separate funciton called from submit btn?)
 //when switch is clicked, edit book info in mylibrary
-//commit
-
-//fix table width (https://stackoverflow.com/questions/4457506/set-the-table-column-width-constant-regardless-of-the-amount-of-text-in-its-cell)
 //commit
 
 addBookToLibrary("Book 1", "Author Name", 100, "Read");

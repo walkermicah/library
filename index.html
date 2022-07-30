@@ -28,46 +28,44 @@
           <div class="form-container">
             <div class="form-field">
               <label for="title" class="form-label">TITLE</label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                class="form-input-1"
-                required
-              />
+              <input type="text" id="title" required />
             </div>
 
             <div class="form-field">
               <label for="author" class="form-label">AUTHOR</label>
-              <input
-                type="text"
-                id="author"
-                name="author"
-                class="form-input"
-                required
-              />
+              <input type="text" id="author" required />
             </div>
 
             <div class="form-field">
               <label for="pages" class="form-label"># PAGES</label>
-              <input
-                type="text"
-                id="pages"
-                name="pages"
-                class="form-input"
-                required
-              />
+              <input type="text" id="pages" required />
             </div>
 
             <div class="form-field">
-              <label for="status" class="form-label">STATUS</label>
-              <input
-                type="text"
-                id="status"
-                name="status"
-                class="form-input"
-                required
-              />
+              <div class="form-radio">
+                <input
+                  type="radio"
+                  id="read"
+                  class="form-radio-input"
+                  name="status"
+                  value="Read"
+                />
+                <label for="read" class="form-label form-radio-label"
+                  ><span class="form-radio-btn"></span>READ</label
+                >
+              </div>
+              <div class="form-radio">
+                <input
+                  type="radio"
+                  id="unread"
+                  class="form-radio-input"
+                  name="status"
+                  value="Unread"
+                />
+                <label for="unread" class="form-label form-radio-label"
+                  ><span class="form-radio-btn"></span>UNREAD</label
+                >
+              </div>
             </div>
 
             <input type="submit" value="SUBMIT" class="submit-btn" />
