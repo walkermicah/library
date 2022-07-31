@@ -195,6 +195,22 @@ input:focus {
 }
 
 /* MEDIA QUERIES */
+/* 1050px */
+@media only screen and (max-width: 65.625em) {
+  .form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* 700px */
+@media only screen and (max-width: 43.75em) {
+  .form-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 450px */
 @media only screen and (max-width: 28.125em) {
   html {
     font-size: 56.25%;
