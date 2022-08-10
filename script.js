@@ -59,6 +59,12 @@ class UI {
     }
   }
 
+  static changeReadStatus(index) {
+    const book = myLibrary.library[index];
+    book.read === "Read" ? (book.read = "Unread") : (book.read = "Read");
+    UI.displayBooks(myLibrary);
+  }
+
   static displayReadButton(el, index) {
     //create button
     const readBtn = el.appendChild(document.createElement("button"));
@@ -73,25 +79,25 @@ class UI {
 
     //change read status
     readBtn.addEventListener("click", function () {
-      const book = myLibrary.library[index];
-      book.read === "Read" ? (book.read = "Unread") : (book.read = "Read");
-      UI.displayBooks(myLibrary);
+      UI.changeReadStatus(index);
     });
+  }
+
+  static deleteRow(index) {
+    const book = document.querySelector(`[data-index="${index}"]`);
+    book.remove();
+    myLibrary.library.splice(index, 1);
+    UI.displayBooks(myLibrary);
   }
 
   //adds a delete button to each table row
   static displayDeleteButton(el, index) {
-    //create button
     const deleteBtn = el.appendChild(document.createElement("button"));
     deleteBtn.classList.add("delete-btn");
     deleteBtn.innerHTML = `<img class="delete-icon" src="img/trash.png">`;
 
-    //delete corresponding row
     deleteBtn.addEventListener("click", function () {
-      const book = document.querySelector(`[data-index="${index}"]`);
-      book.remove();
-      myLibrary.library.splice(index, 1);
-      UI.displayBooks(myLibrary);
+      UI.deleteRow(index);
     });
   }
 
@@ -125,12 +131,13 @@ class UI {
   }
 }
 
+//Events
 newBookBtn.addEventListener("click", UI.displayForm);
 
 submitBtn.addEventListener("click", UI.submitForm);
 
 document.addEventListener("keypress", function (e) {
-  if (e.key === "Enter") {
+  if (e.key === "Enter" && !form.classList.contains("hidden")) {
     submitBtn.click();
   }
 });
