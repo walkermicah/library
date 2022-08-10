@@ -57,7 +57,7 @@ class UI {
     if (!title || !author || !pages) return;
 
     myLibrary.addBookToLibrary(title, author, pages, read);
-    this.#displayBooks(myLibrary.library);
+    this.#displayBooks(myLibrary);
 
     form.reset();
     form.classList.add("hidden");
@@ -87,7 +87,7 @@ class UI {
     readBtn.addEventListener("click", function () {
       const book = myLibrary.library[index];
       book.read === "Read" ? (book.read = "Unread") : (book.read = "Read");
-      ui.#displayBooks();
+      ui.#displayBooks(myLibrary);
     });
   }
 
@@ -108,10 +108,10 @@ class UI {
   }
 
   //displays library books in table
-  #displayBooks() {
+  #displayBooks(lib) {
     this.#clearTable();
 
-    myLibrary.library.forEach((book) => {
+    lib.library.forEach((book) => {
       //create table row
       const row = table.insertRow();
       const cell1 = row.insertCell();
