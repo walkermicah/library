@@ -208,6 +208,10 @@ input:focus {
   .form-container {
     grid-template-columns: 1fr;
   }
+
+  .read-btn {
+    width: 100%;
+  }
 }
 
 /* 450px */
