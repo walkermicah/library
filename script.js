@@ -26,20 +26,8 @@ const submitBtn = document.querySelector(".submit-btn");
 const form = document.querySelector("form");
 
 class UI {
-  constructor() {
-    newBookBtn.addEventListener("click", this.#displayForm.bind(this));
-
-    submitBtn.addEventListener("click", this.#submitForm.bind(this));
-
-    document.addEventListener("keypress", function (e) {
-      if (e.key === "Enter") {
-        submitBtn.click();
-      }
-    });
-  }
-
   //displays the form to add a new book
-  #displayForm() {
+  static displayForm() {
     form.classList.remove("hidden");
     newBookBtn.classList.add("hidden");
     submitBtn.classList.remove("hidden");
@@ -48,7 +36,7 @@ class UI {
   }
 
   //submits the form to add a new book then hides the form
-  #submitForm() {
+  static submitForm() {
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
@@ -57,7 +45,7 @@ class UI {
     if (!title || !author || !pages) return;
 
     myLibrary.addBookToLibrary(title, author, pages, read);
-    this.#displayBooks(myLibrary);
+    UI.displayBooks(myLibrary);
 
     form.reset();
     form.classList.add("hidden");
@@ -65,13 +53,13 @@ class UI {
     submitBtn.classList.add("hidden");
   }
 
-  #clearTable() {
+  static clearTable() {
     for (let i = table.rows.length; i > 0; i--) {
       table.deleteRow(i - 1);
     }
   }
 
-  #displayReadButton(el, index) {
+  static displayReadButton(el, index) {
     //create button
     const readBtn = el.appendChild(document.createElement("button"));
     readBtn.classList.add("read-btn");
@@ -87,12 +75,12 @@ class UI {
     readBtn.addEventListener("click", function () {
       const book = myLibrary.library[index];
       book.read === "Read" ? (book.read = "Unread") : (book.read = "Read");
-      ui.#displayBooks(myLibrary);
+      UI.displayBooks(myLibrary);
     });
   }
 
   //adds a delete button to each table row
-  #displayDeleteButton(el, index) {
+  static displayDeleteButton(el, index) {
     //create button
     const deleteBtn = el.appendChild(document.createElement("button"));
     deleteBtn.classList.add("delete-btn");
@@ -103,13 +91,13 @@ class UI {
       const book = document.querySelector(`[data-index="${index}"]`);
       book.remove();
       myLibrary.library.splice(index, 1);
-      ui.#displayBooks(myLibrary);
+      UI.displayBooks(myLibrary);
     });
   }
 
   //displays library books in table
-  #displayBooks(lib) {
-    this.#clearTable();
+  static displayBooks(lib) {
+    UI.clearTable();
 
     lib.library.forEach((book) => {
       //create table row
@@ -129,11 +117,20 @@ class UI {
       cell3.textContent = book.pages;
 
       //add "read/unread" toggle button to each row
-      this.#displayReadButton(cell4, index);
+      UI.displayReadButton(cell4, index);
 
       // //add delete button to each row
-      this.#displayDeleteButton(cell4, index);
+      UI.displayDeleteButton(cell4, index);
     });
   }
 }
-const ui = new UI();
+
+newBookBtn.addEventListener("click", UI.displayForm);
+
+submitBtn.addEventListener("click", UI.submitForm);
+
+document.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    submitBtn.click();
+  }
+});
