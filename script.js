@@ -20,7 +20,7 @@ class Book {
 }
 
 //Project architecture
-const table = document.querySelector("table");
+const table = document.querySelector("tbody");
 const newBookBtn = document.querySelector(".new-book-btn");
 const submitBtn = document.querySelector(".submit-btn");
 const form = document.querySelector("form");
@@ -66,8 +66,8 @@ class UI {
   }
 
   #clearTable() {
-    for (let i = table.rows.length - 1; i > 0; i--) {
-      table.deleteRow(i);
+    for (let i = table.rows.length; i > 0; i--) {
+      table.deleteRow(i - 1);
     }
   }
 
